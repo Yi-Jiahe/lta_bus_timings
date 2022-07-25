@@ -81,3 +81,6 @@ if config_env() == :prod do
   #
   # See https://hexdocs.pm/swoosh/Swoosh.html#module-installation for details.
 end
+
+config :lta_bus_timings,
+  api_account_key: System.fetch_env!("API_ACCOUNT_KEY")
