@@ -1,5 +1,28 @@
 # LtaBusTimings
 
+One of many consumers of the [LTA DataMall](https://datamall.lta.gov.sg/content/datamall/en.html) APIs to get bus timings. Hopefully with a good mix of accessibility, quick load times and functionality to set it apart.
+
+The goals of this project are to:
+  - Provide a webapp for easier use compared to a native app
+  - Quick load times and SEO with SSR
+  - Mix of location and favorites to provide opt-out of location services
+  - Scalability with Erlang VM?
+  - Learn Elixir
+
+## To-Do
+
+ - [ ] Query API for bus timings for bus stops
+ - [ ] Location Services
+   - [ ] Query API for 
+   - [ ] Get user location
+   - [ ] Return closest and list of next closest bus stops
+ - [ ] Favorites
+   - [ ] Save user preferences w/o sign-in/ login
+ - [ ] Cool UI (w/o compromising too much on load times)
+   - [ ] Timeline to show how close buses are
+
+## Phoenix server stuff
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
