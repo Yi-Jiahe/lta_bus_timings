@@ -11,7 +11,7 @@ The goals of this project are to:
 
 ## To-Do
 
- - [ ] Query API for bus timings for bus stops
+ - [x] Query API for bus timings for bus stops
  - [ ] Location Services
    - [ ] Query API for 
    - [ ] Get user location
