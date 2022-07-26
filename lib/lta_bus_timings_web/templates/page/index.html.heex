@@ -24,7 +24,12 @@
         <%= render("bus_details.html", bus: service["NextBus"]) %>
         <%= render("bus_details.html", bus: service["NextBus2"]) %>
         <%= render("bus_details.html", bus: service["NextBus3"]) %>
+        <td>
+          <%= button "favourite", to: Routes.favourite_path(@conn, :create, %{stop_id: 83139, service: service["ServiceNo"]}),
+                   method: :post %>
+        </td>
       </tr>
     <% end %>    
   </table>
 </section>
+

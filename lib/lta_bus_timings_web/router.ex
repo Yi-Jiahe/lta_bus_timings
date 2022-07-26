@@ -18,6 +18,8 @@ defmodule LtaBusTimingsWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+
+    resources "/favourite", FavouriteController, only: [:create]
   end
 
   # Other scopes may use custom stacks.
