@@ -10,7 +10,6 @@ defmodule LtaBusTimingsWeb.PageController do
     %{"Services" => services} = Jason.decode!(response.body)
 
     conn
-    |> assign(:api_account_key, Application.fetch_env!(:lta_bus_timings, :api_account_key))
     |> assign(:services, services)
     |> render("index.html")
   end
