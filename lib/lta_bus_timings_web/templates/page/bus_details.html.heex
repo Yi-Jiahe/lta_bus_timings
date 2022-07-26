@@ -1,5 +1,5 @@
 <%= if @bus["EstimatedArrival"] != "" do %>
-    <td class={@bus["Load"]}><%= @bus["EstimatedArrival"] %></td>
+    <td class={@bus["Load"]}><%= seconds_till_arrival @bus["EstimatedArrival"] %></td>
 <% else %>
     <td class="no-bus"></td>
 <% end %>
