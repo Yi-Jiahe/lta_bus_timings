@@ -1,0 +1,5 @@
+<%= if @bus["EstimatedArrival"] != "" do %>
+    <td class={@bus["Load"]}><%= @bus["EstimatedArrival"] %></td>
+<% else %>
+    <td class="no-bus"></td>
+<% end %>

@@ -13,9 +13,9 @@
     <%= for service <- @services do %>
       <tr>
         <td><%= service["ServiceNo"] %></td>
-        <td><%= service["NextBus"]["EstimatedArrival"] %></td>
-        <td><%= service["NextBus2"]["EstimatedArrival"] %></td>
-        <td><%= service["NextBus3"]["EstimatedArrival"] %></td>
+        <%= render("bus_details.html", bus: service["NextBus"]) %>
+        <%= render("bus_details.html", bus: service["NextBus2"]) %>
+        <%= render("bus_details.html", bus: service["NextBus3"]) %>
       </tr>
     <% end %>    
   </table>

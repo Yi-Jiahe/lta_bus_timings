@@ -118,3 +118,19 @@
   0% { opacity: 1; }
   100% { opacity: 0; }
 }
+
+.SEA {
+  background-color: MediumSeaGreen;
+}
+
+.SDA {
+  background-color: orange;
+}
+
+.LSD {
+  background-color: Tomato;
+}
+
+.no-bus {
+  background-color: gainsboro;
+}
