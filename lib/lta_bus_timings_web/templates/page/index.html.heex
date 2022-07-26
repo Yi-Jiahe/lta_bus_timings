@@ -4,6 +4,14 @@
   <p><%= @api_account_key %></p>
 </section>
 
+<section>
+  <%= for service <- @services do %>
+    <tr>
+      <td><%= render(LtaBusTimingsWeb.PageView, "service.json", page: service) %></td>
+    </tr>
+  <% end %>
+</section>
+
 <section class="row">
   <article class="column">
     <h2>Resources</h2>

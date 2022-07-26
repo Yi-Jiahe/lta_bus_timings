@@ -7,7 +7,7 @@ defmodule LtaBusTimingsWeb.PageController do
     headers = ["AccountKey": token, "Accept": "Application/json"]
     {:ok, response} = HTTPoison.get(url, headers)
 
-    %{"Services": services} = Jason.decode!(response.body)
+    %{"Services" => services} = Jason.decode!(response.body)
 
     conn
     |> assign(:api_account_key, Application.fetch_env!(:lta_bus_timings, :api_account_key))
