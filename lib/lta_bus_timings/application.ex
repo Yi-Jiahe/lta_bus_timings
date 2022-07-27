@@ -8,8 +8,8 @@ defmodule LtaBusTimings.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      # # Start the Ecto repository
-      # LtaBusTimings.Repo,
+      # Start the Ecto repository
+      LtaBusTimings.Repo,
       # Start the Telemetry supervisor
       LtaBusTimingsWeb.Telemetry,
       # Start the PubSub system
