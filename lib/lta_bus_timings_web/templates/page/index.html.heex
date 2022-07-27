@@ -1,5 +1,8 @@
 <section class="phx-hero">
   <p>LTA Bus Arrivals</p>
+  <%= for stop_id <- @favourite_stops do %>
+    <%= link "#{stop_id}", to: Routes.page_path(@conn, :index, %{"stop_id" => stop_id}) %>
+  <% end %>
 </section>
 
 <section>
@@ -26,10 +29,10 @@
         <%= render("bus_details.html", bus: service["NextBus3"]) %>
         <td>
         <%= if favourited_service?(@favourited_services, service["ServiceNo"]) do %>
-          <%= button "unfavourite", to: Routes.favourite_path(@conn, :delete, "{\"stop_id\": \"#{83139}\", \"service\": \"#{service["ServiceNo"]}\"}"),
+          <%= button "unfavourite", to: Routes.favourite_path(@conn, :delete, "{\"stop_id\": \"#{@stop_id}\", \"service\": \"#{service["ServiceNo"]}\"}"),
             method: :delete %>
         <% else %>
-          <%= button "favourite", to: Routes.favourite_path(@conn, :create, %{stop_id: 83139, service: service["ServiceNo"]}),
+          <%= button "favourite", to: Routes.favourite_path(@conn, :create, %{stop_id: @stop_id, service: service["ServiceNo"]}),
             method: :post %>
         <% end %>
         </td>

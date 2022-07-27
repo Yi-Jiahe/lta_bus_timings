@@ -10,6 +10,7 @@ defmodule LtaBusTimingsWeb.PageController do
     end
 
     favourites = LtaBusTimingsWeb.Favourites.get_favourites(conn)
+    favourite_stops = Map.keys(favourites)
     favourited_services = case favourites[stop_id] do
       nil ->
         []
@@ -18,14 +19,18 @@ defmodule LtaBusTimingsWeb.PageController do
     end
 
     conn
+    |> assign(:stop_id, stop_id)
     |> assign(:services, services)
+    |> assign(:favourite_stops, favourite_stops)
     |> assign(:favourited_services, favourited_services)
     |> render("index.html")
   end
 
   def index(conn, _params) do
     conn
+    |> assign(:stop_id, "")
     |> assign(:services, [])
+    |> assign(:favourite_stops, [])
     |> assign(:favourited_services, [])
     |> render("index.html")
   end
