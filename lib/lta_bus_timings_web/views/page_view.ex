@@ -11,4 +11,11 @@ defmodule LtaBusTimingsWeb.PageView do
   def favourited_service?(favourited_services, service) do
     Enum.member?(favourited_services, service)
   end
+
+  def bus_stop_description(bus_stop_code) do
+    case IO.inspect(LtaBusTimings.BusStops.get_bus_stop_by_code(bus_stop_code)) do
+      nil -> ""
+      %{description: description} -> description
+    end
+  end
 end

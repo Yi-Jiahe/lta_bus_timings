@@ -1,7 +1,7 @@
 <section class="phx-hero">
   <p>LTA Bus Arrivals</p>
   <%= for stop_id <- @favourite_stops do %>
-    <%= link "#{stop_id}", to: Routes.page_path(@conn, :index, %{"stop_id" => stop_id}) %>
+    <%= link "#{stop_id} #{bus_stop_description(stop_id)}", to: Routes.page_path(@conn, :index, %{"stop_id" => stop_id}) %>
   <% end %>
 </section>
 

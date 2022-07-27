@@ -37,6 +37,8 @@ defmodule LtaBusTimings.BusStops do
   """
   def get_bus_stop!(id), do: Repo.get!(BusStop, id)
 
+  def get_bus_stop_by_code(bus_stop_code), do: Repo.get_by(BusStop, [bus_stop_code: bus_stop_code])
+
   @doc """
   Creates a bus_stop.
 
