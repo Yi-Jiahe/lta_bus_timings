@@ -16,8 +16,8 @@ The goals of this project are to:
    - [x] Query API for bus stops
    - [ ] Get user location
    - [ ] Return closest and list of next closest bus stops
- - [ ] Favorites
-   - [ ] Save user preferences w/o sign-in/ login
+ - [x] Favorites
+   - [x] Save user preferences w/o sign-in/ login
  - [ ] Cool UI (w/o compromising too much on load times)
    - [ ] Timeline to show how close buses are
 
