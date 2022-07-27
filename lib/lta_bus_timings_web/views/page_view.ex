@@ -7,4 +7,8 @@ defmodule LtaBusTimingsWeb.PageView do
     seconds = DateTime.diff(datetime_arrival, datetime_now, :second)
     "#{div(seconds, 60)}m#{rem(seconds, 60)}s"
   end
+
+  def favourited_service?(favourited_services, service) do
+    Enum.member?(favourited_services, service)
+  end
 end

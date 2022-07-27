@@ -19,7 +19,7 @@ defmodule LtaBusTimingsWeb.Router do
 
     get "/", PageController, :index
 
-    resources "/favourite", FavouriteController, only: [:create]
+    resources "/favourite", FavouriteController, only: [:create, :delete]
   end
 
   # Other scopes may use custom stacks.
