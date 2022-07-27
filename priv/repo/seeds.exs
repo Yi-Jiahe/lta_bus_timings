@@ -11,7 +11,6 @@
 # and so on) as they will fail if something goes wrong.
 
 alias LtaBusTimings.Repo
-alias LtaBusTimings.BusStops
 alias LtaBusTimings.BusStops.BusStop
 import Ecto.Query
 
@@ -26,7 +25,7 @@ for %{
       "Latitude" => latitude,
       "Longitude" => longitude
     } <- bus_stops do
-  BusStops.create_bus_stop(%{
+  Repo.insert!(%BusStop{
     bus_stop_code: bus_stop_code,
     road_name: road_name,
     description: description,
