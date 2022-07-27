@@ -1,4 +1,4 @@
-defmodule LtaBusTimings.BusStop do
+defmodule LtaBusTimings.BusStops.BusStop do
   use Ecto.Schema
   import Ecto.Changeset
 

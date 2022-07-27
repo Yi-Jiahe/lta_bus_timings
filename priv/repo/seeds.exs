@@ -10,7 +10,9 @@
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
 
-alias LtaBusTimings.{Repo, BusStop}
+alias LtaBusTimings.Repo
+alias LtaBusTimings.BusStops
+alias LtaBusTimings.BusStops.BusStop
 import Ecto.Query
 
 from(s in BusStop) |> Repo.delete_all()
@@ -24,7 +26,7 @@ for %{
       "Latitude" => latitude,
       "Longitude" => longitude
     } <- bus_stops do
-  Repo.insert!(%BusStop{
+  BusStops.create_bus_stop(%{
     bus_stop_code: bus_stop_code,
     road_name: road_name,
     description: description,
