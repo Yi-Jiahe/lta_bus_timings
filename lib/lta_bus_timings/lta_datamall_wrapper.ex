@@ -10,8 +10,8 @@ defmodule LtaBusTimings.LTADataMallWrapper do
     body
   end
 
-  def get_bus_stops() do
-    url = "http://datamall2.mytransport.sg/ltaodataservice/BusStops"
+  def get_bus_stops(offset) do
+    url = "http://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip=#{offset}"
 
     headers = [AccountKey: Application.fetch_env!(:lta_bus_timings, :api_account_key), Accept: "Application/json"]
     {:ok, response} = HTTPoison.get(url, headers)

@@ -13,7 +13,7 @@ The goals of this project are to:
 
  - [x] Query API for bus timings for bus stops
  - [ ] Location Services
-   - [ ] Query API for 
+   - [x] Query API for bus stops
    - [ ] Get user location
    - [ ] Return closest and list of next closest bus stops
  - [ ] Favorites
