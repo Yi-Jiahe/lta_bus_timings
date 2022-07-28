@@ -89,7 +89,7 @@ COPY --from=builder --chown=nobody:root /app/_build/${MIX_ENV}/rel/lta_bus_timin
 
 USER nobody
 
-CMD ["/app/bin/server eval "LtaBusTimings.Release.seed""]
+CMD ["/app/bin/server eval \"LtaBusTimings.Release.seed\""]
 # Appended by flyctl
 ENV ECTO_IPV6 true
 ENV ERL_AFLAGS "-proto_dist inet6_tcp"
