@@ -48,10 +48,10 @@ config :logger, :console,
 config :phoenix, :json_library, Jason
 
 config :lta_bus_timings, LtaBusTimings.Scheduler,
-jobs: [
-  # Runs every day at 3am:
-  {"0 3 * * *", fn -> LtaBusTimings.BusStops.refresh_bus_stops() end}
-]
+  jobs: [
+    # Runs every day at 3am:
+    {"0 3 * * *", {LtaBusTimings.BusStops, :refresh_bus_stops, []}}
+  ]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
