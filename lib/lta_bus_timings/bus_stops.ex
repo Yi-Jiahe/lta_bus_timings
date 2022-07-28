@@ -37,7 +37,7 @@ defmodule LtaBusTimings.BusStops do
   """
   def get_bus_stop!(id), do: Repo.get!(BusStop, id)
 
-  def get_bus_stop_by_code(bus_stop_code), do: Repo.get_by(BusStop, [bus_stop_code: bus_stop_code])
+  def get_bus_stop_by_code(bus_stop_code), do: Repo.get_by(BusStop, bus_stop_code: bus_stop_code)
 
   @doc """
   Creates a bus_stop.
@@ -102,5 +102,39 @@ defmodule LtaBusTimings.BusStops do
   """
   def change_bus_stop(%BusStop{} = bus_stop, attrs \\ %{}) do
     BusStop.changeset(bus_stop, attrs)
+  end
+
+  defmodule Recursion do
+    def insert_stops(bus_stops, offset, count) when count > 0 do
+      for %{
+            "BusStopCode" => bus_stop_code,
+            "RoadName" => road_name,
+            "Description" => description,
+            "Latitude" => latitude,
+            "Longitude" => longitude
+          } <- bus_stops do
+        Repo.insert!(%BusStop{
+          bus_stop_code: bus_stop_code,
+          road_name: road_name,
+          description: description,
+          latitude: latitude,
+          longitude: longitude
+        })
+      end
+
+      %{"value" => bus_stops} = LtaBusTimings.LTADataMallWrapper.get_bus_stops(offset)
+      count = Enum.count(bus_stops)
+      insert_stops(bus_stops, offset + count, count)
+    end
+
+    def insert_stops(_bus_stops, _offset, 0) do
+      :ok
+    end
+  end
+
+  def refresh_bus_stops() do
+    from(s in BusStop) |> Repo.delete_all()
+    %{"value" => bus_stops} = LtaBusTimings.LTADataMallWrapper.get_bus_stops(0)
+    Recursion.insert_stops(bus_stops, 0, Enum.count(bus_stops))
   end
 end
