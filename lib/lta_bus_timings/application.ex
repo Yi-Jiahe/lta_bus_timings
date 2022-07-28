@@ -15,9 +15,10 @@ defmodule LtaBusTimings.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: LtaBusTimings.PubSub},
       # Start the Endpoint (http/https)
-      LtaBusTimingsWeb.Endpoint
+      LtaBusTimingsWeb.Endpoint,
       # Start a worker by calling: LtaBusTimings.Worker.start_link(arg)
       # {LtaBusTimings.Worker, arg}
+      LtaBusTimingsWeb.Scheduler
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
