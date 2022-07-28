@@ -18,7 +18,7 @@ defmodule LtaBusTimings.Release do
     {:ok, _, _} = Ecto.Migrator.with_repo(repo, &Ecto.Migrator.run(&1, :down, to: version))
   end
 
-  def seed() do
+  def seed do
     load_app()
 
     LtaBusTimings.BusStops.refresh_bus_stops()
