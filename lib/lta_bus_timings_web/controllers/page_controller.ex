@@ -28,10 +28,13 @@ defmodule LtaBusTimingsWeb.PageController do
   end
 
   def index(conn, _params) do
+    favourites = LtaBusTimingsWeb.Favourites.get_favourites(conn)
+    favourite_stops = Map.keys(favourites)
+
     conn
     |> assign(:stop_id, "")
     |> assign(:services, [])
-    |> assign(:favourite_stops, [])
+    |> assign(:favourite_stops, favourite_stops)
     |> assign(:favourited_services, [])
     |> render("index.html")
   end
