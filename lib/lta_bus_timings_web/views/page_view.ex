@@ -13,9 +13,9 @@ defmodule LtaBusTimingsWeb.PageView do
   end
 
   def bus_stop_description(bus_stop_code) do
-    case IO.inspect(LtaBusTimings.BusStops.get_bus_stop_by_code(bus_stop_code)) do
+    case LtaBusTimings.BusStops.get_bus_stops()[bus_stop_code] do
       nil -> ""
-      %{description: description} -> description
+      %{"description" => description} -> description
     end
   end
 end

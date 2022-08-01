@@ -18,8 +18,10 @@ defmodule LtaBusTimings.Application do
       LtaBusTimingsWeb.Endpoint,
       # Start a worker by calling: LtaBusTimings.Worker.start_link(arg)
       # {LtaBusTimings.Worker, arg}
-      LtaBusTimingsWeb.Scheduler
+      LtaBusTimings.Scheduler
     ]
+
+    LtaBusTimings.BusStops.refresh_bus_stops()
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options

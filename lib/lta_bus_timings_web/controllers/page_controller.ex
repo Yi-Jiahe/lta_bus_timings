@@ -17,7 +17,7 @@ defmodule LtaBusTimingsWeb.PageController do
       _ ->
         []
     end
-    services = Enum.sort_by(services, fn e -> IO.inspect{!Enum.member?(favourited_services, e["ServiceNo"]), e["NextBus"]["EstimatedArrival"]} end)
+    services = Enum.sort_by(services, fn e -> {!Enum.member?(favourited_services, e["ServiceNo"]), e["NextBus"]["EstimatedArrival"]} end)
 
     conn
     |> assign(:stop_id, stop_id)
