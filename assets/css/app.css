@@ -186,6 +186,18 @@ select.inline  {
   width: auto;
 }
 
+.bus-timings td {
+  padding: 0;
+}
+
+.bus-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 8rem;
+}
+
 .SEA {
   background-color: MediumSeaGreen;
 }
@@ -200,4 +212,10 @@ select.inline  {
 
 .no-bus {
   background-color: gainsboro;
+}
+
+.extra-icons {
+  position: absolute;
+  top: 0;
+  right: 0  ;
 }
