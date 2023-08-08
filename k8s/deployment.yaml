@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lta-bus-timings
+  labels:
+    app: lta-bus-timings
+spec:
+  selector:
+    matchLabels:
+      app: lta-bus-timings
+  template:
+    metadata:
+      labels:
+        app: lta-bus-timings
+    spec:
+      containers:
+        - name: lta-bus-timings
+          image: asia-southeast1-docker.pkg.dev/primal-sunup-394912/sandbox/lta_bus_timings@sha256:59d7bd66637256f69ed4d00c50b75450851a91be5647d7166499450ab96d0669
+          env:
+            - name: API_ACCOUNT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: lta-bus-timings-secret
+                  key: datamall-api-account-key
+            - name: SECRET_KEY_BASE
+              valueFrom:
+                secretKeyRef:
+                  name: lta-bus-timings-secret
+                  key: secret-key-base
+          ports:
+            - containerPort: 4000

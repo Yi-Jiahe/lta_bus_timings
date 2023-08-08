@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: lta-bus-timings
+spec:
+  rules:
+  - host: sg-bus-jiahe.amesame.rocks
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: lta-bus-timings
+            port:
+              number: 8080
