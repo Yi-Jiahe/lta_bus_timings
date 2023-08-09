@@ -29,3 +29,7 @@ spec:
                   key: secret-key-base
           ports:
             - containerPort: 4000
+          resources:
+            requests:
+              memory: "500M"
+              cpu: "250m"
