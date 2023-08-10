@@ -2,9 +2,16 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: lta-bus-timings
+  annotations:
+    cert-manager.io/issuer: "letsencrypt-prod"
+
 spec:
+  tls:
+  - hosts:
+    - sg.bus.jiahe.dev
+    secretName: lta-bus-timings-tls
   rules:
-  - host: sg-bus-jiahe.amesame.rocks
+  - host: sg.bus.jiahe.dev
     http:
       paths:
       - path: /
