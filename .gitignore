@@ -32,3 +32,4 @@ lta_bus_timings-*.tar
 npm-debug.log
 /assets/node_modules/
 
+*.secret

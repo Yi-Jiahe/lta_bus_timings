@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: lta-bus-timings
-          image: asia-southeast1-docker.pkg.dev/primal-sunup-394912/sandbox/lta_bus_timings@sha256:59d7bd66637256f69ed4d00c50b75450851a91be5647d7166499450ab96d0669
+          image: registry.digitalocean.com/shiori-7d6ef8e7/lta_bus_timings@sha256:ed7b996f5b2fc3bc213ecc5a5bca10b599f8ad032c221789a7cc1e682a191f82
           env:
             - name: API_ACCOUNT_KEY
               valueFrom:
